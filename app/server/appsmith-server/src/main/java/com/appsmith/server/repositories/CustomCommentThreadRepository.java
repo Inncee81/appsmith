@@ -11,5 +11,6 @@ import java.util.Set;
 public interface CustomCommentThreadRepository extends AppsmithRepository<CommentThread> {
     Flux<CommentThread> findByApplicationId(String applicationId, AclPermission permission);
     Mono<UpdateResult> addToSubscribers(String threadId, Set<String> usernames);
+    Mono<UpdateResult> removeSubscriber(String threadId, String username);
     Mono<Long> countUnreadThreads(String applicationId, String userEmail);
 }
